@@ -1,1 +1,25 @@
-<p>user works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="username">Nom d'utilisateur : </label>
+        <input id="username" type="text" formControlName="username">
+    </div>
+    <div>
+        <label for="email">Email : </label>
+        <input id="email" type="email" formControlName="email">
+    </div>
+    <div>
+        <label for="password">Mot de passe : </label>
+        <input id="password" type="password" formControlName="password">
+    </div>
+    <div formGroupName="location">
+        <label for="location">Adresse : </label>
+        <input id="location" type="text" formControlName="street">
+        <label for="location">Code postal : </label>
+        <input type="number" formControlName="zipCode">
+        <label for="location">Ville : </label>
+        <input type="text" formControlName="city">
+    </div>
+
+
+    <button type="submit" [disabled]="!userForm.valid">Inscription</button>
+</form>
