@@ -1,16 +1,21 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
     <div>
         <label for="username">Nom d'utilisateur : </label>
         <input id="username" type="text" formControlName="username">
     </div>
-    <div>
+
+    <div formGroupName="credentials">
+
+
         <label for="email">Email : </label>
         <input id="email" type="email" formControlName="email">
-    </div>
-    <div>
+
         <label for="password">Mot de passe : </label>
         <input id="password" type="password" formControlName="password">
     </div>
+
+
     <div formGroupName="location">
         <label for="location">Adresse : </label>
         <input id="location" type="text" formControlName="street">
@@ -22,4 +27,11 @@
 
 
     <button type="submit" [disabled]="!userForm.valid">Inscription</button>
+
 </form>
+
+<div *ngIf="credentials">
+    <h2>Nouvel utilisateur : </h2>
+    Nom : {{credentials.email}} <br>
+    Email : {{credentials.password}}
+</div>
